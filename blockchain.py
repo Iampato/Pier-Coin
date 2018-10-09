@@ -7,7 +7,7 @@ def add_blockchain(transaction_amount):
 
     blockchain.append(transaction_amount)
     
-print ( get_last_blockchain_value() )
+print ("Last value: {}".format( get_last_blockchain_value() ))
 add_blockchain(10)
 print( blockchain )
 
