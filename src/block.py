@@ -1,4 +1,5 @@
 from core.transaction import Transaction
+from typing import List, cast
 from Crypto.Hash import SHA256
 
 class Block:
@@ -17,4 +18,19 @@ class Block:
             noonce=noonce,
             previousHash=previousHash)
 
+	def postJson(self) -> str:
+		d = {
+			"hash" : self.hash
+			"index" : self.index
+			"timestamp" : self.timestamp
+			"noonce": self.noonce,
+            "previousHash": self.previousHash,
+            "transactions": [],
+		}
+		for transaction in self.transactions:
+            dTransactions = cast(List[Transaction], d["transactions"])
+            dTransactions.append(transaction.asDict())
 
+        return json.dumps(d, indent=4)
+
+	def
