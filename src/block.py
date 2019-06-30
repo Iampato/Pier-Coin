@@ -18,7 +18,7 @@ class Block:
             noonce=noonce,
             previousHash=previousHash)
 
-	def postJson(self) -> str:
+	def toJson(self) -> str:
 		d = {
 			"hash" : self.hash
 			"index" : self.index
@@ -33,4 +33,7 @@ class Block:
 
         return json.dumps(d, indent=4)
 
-	def
+    def generateBlock(self):
+    	
+
+	
